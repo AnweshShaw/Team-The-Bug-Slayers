@@ -28,10 +28,10 @@ MY_EMAIL = "anweshofficial16@gmail.com"
 MY_PASSWORD = "abcd1234()"
 RECEIVER_EMAIL = "xyz@gmail.com"
 
-''''
+
 with smtplib.SMTP("smtp.gmail.com") as connection:
     connection.starttls()
     connection.login(MY_EMAIL, MY_PASSWORD)
     connection.sendmail(from_addr=MY_EMAIL,to_addrs=RECEIVER_EMAIL,
                         msg=f"Subject:OTP\n\n Your OTP for accessing document is = {otp}")
-    connection.close()'''
+    connection.close()
