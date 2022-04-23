@@ -1,6 +1,5 @@
 import qrcode
 import random, smtplib
-import time
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
@@ -10,12 +9,10 @@ from email import encoders
 
 qr = qrcode.QRCode(version=15, box_size=10, border=5)
 data = "https://thebugslayers.000webhostapp.com/"
-for i in range(1,10):
-    time.sleep(600)
-    qr.add_data(data)
-    qr.make(fit=True)
-    img = qr.make_image(fill="black", back_color="white")
-    img.save(f"document_qr{i}.jpg")
+qr.add_data(data)
+qr.make(fit=True)
+img = qr.make_image(fill="black", back_color="white")
+img.save('document_qr2.jpg')
 
 # The random module will be used to generate an OTP.
 
