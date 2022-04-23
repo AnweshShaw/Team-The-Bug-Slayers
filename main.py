@@ -28,7 +28,7 @@ print(otp)
 
 # The smtp library is used to mail the OTP to the participants. This provides security to the user.
 
-USER_EMAIL = "anweshofficial16@gmail.com"
+USER_EMAIL = "abcd@gmail.com"
 USER_PASSWORD = "abcd1234()"
 RECEIVER_EMAIL = "xyz@gmail.com"
 
