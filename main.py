@@ -1,5 +1,6 @@
 import qrcode
 import random, smtplib
+import time
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
@@ -9,20 +10,12 @@ from email import encoders
 
 qr = qrcode.QRCode(version=15, box_size=10, border=5)
 data = "https://thebugslayers.000webhostapp.com/"
-qr.add_data(data)
-qr.make(fit=True)
-img = qr.make_image(fill="black", back_color="white")
-img.save('document_qr.jpg')
-
-'''
-# To generate a Dynamic QR Code which refreshes after every 10 minutes for security reasons.
 for i in range(1,10):
     time.sleep(600)
     qr.add_data(data)
     qr.make(fit=True)
     img = qr.make_image(fill="black", back_color="white")
     img.save(f"document_qr{i}.jpg")
-  '''
 
 # The random module will be used to generate an OTP.
 
@@ -38,7 +31,7 @@ print(otp)
 
 # The smtp library is used to mail the OTP to the participants. This provides security to the user.
 
-USER_EMAIL = "abcde@gmail.com"
+USER_EMAIL = "anweshofficial16@gmail.com"
 USER_PASSWORD = "abcd1234()"
 RECEIVER_EMAIL = "xyz@gmail.com"
 
@@ -50,6 +43,7 @@ with smtplib.SMTP("smtp.gmail.com") as connection:
     connection.close()
 
 # To send a an attachment/document which the user sends to the other user/party via mail
+
 
 msg = MIMEMultipart()
 msg['From'] = USER_EMAIL
@@ -68,7 +62,16 @@ msg.attach(inst)
 connection2 = smtplib.SMTP('smtp.gmail.com', 587)
 connection2.starttls()
 connection2.login(USER_EMAIL, USER_PASSWORD)
-text = msg.as_string()
-connection2.sendmail(USER_EMAIL, RECEIVER_EMAIL, text)
+
+# To authenticate the OTP send via mail and then share the document.
+
+a = input("Enter Your OTP : ")
+if a == otp:
+    print("Verified")
+    text = msg.as_string()
+    connection2.sendmail(USER_EMAIL, RECEIVER_EMAIL, text)
+    connection2.close()
+else:
+    print("Please Check your OTP again")
 connection2.close()
 
