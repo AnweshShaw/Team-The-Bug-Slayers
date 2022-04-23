@@ -14,6 +14,16 @@ qr.make(fit=True)
 img = qr.make_image(fill="black", back_color="white")
 img.save('document_qr.jpg')
 
+'''
+# To generate a Dynamic QR Code which refreshes after every 10 minutes for security reasons.
+for i in range(1,10):
+    time.sleep(600)
+    qr.add_data(data)
+    qr.make(fit=True)
+    img = qr.make_image(fill="black", back_color="white")
+    img.save(f"document_qr{i}.jpg")
+  '''
+
 # The random module will be used to generate an OTP.
 
 num = random.randint(1, 9)
