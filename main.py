@@ -60,7 +60,7 @@ connection2 = smtplib.SMTP('smtp.gmail.com', 587)
 connection2.starttls()
 connection2.login(USER_EMAIL, USER_PASSWORD)
 
-# To authenticate the OTP send via mail and then share the document.
+# To authenticate the OTP sent via mail and then share the document.
 
 a = input("Enter Your OTP : ")
 if a == otp:
