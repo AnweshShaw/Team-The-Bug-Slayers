@@ -7,7 +7,7 @@ The generation of a Dynamic QR Code after a regular interval of time, generating
 Project Methodology and Working:
 1) In the beginning, the user will scan the QR Code which will direct him/her to a document creation and sharing website landing page.
 2) After he/she fills his details and uploads the document, it will redirect him/her to the submission page and the document and the data of the user will be saved in a SQL database.
-3) A random OTP will generated and sent via mail to the another user.
+3) A random OTP will be generated and sent via mail to the another user.
 4)  Now when another user will scan the QR code, he/she will be asked to authenticate the OTP which he/she has received via mail.
 5)  Then, he will get access to the document shared which is saved in the database.
 
